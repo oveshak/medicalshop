@@ -1,0 +1,99 @@
+{% load static %}
+<footer class="bg-faded">
+    <div class="container">
+        <div class="section-content">
+            <div class="row margin-top-30">
+                <div class="col-md-3">
+                  <div class="footer-item footer-widget-one">
+                      <img alt="" src="{% static 'temp/img/logo.png' %}" class="footer-logo">
+                      <p>{{glo.footertext}}</p>
+
+                      <ul class="address">
+                        <li><i class="pe-7s-call"></i>Phone: {{glo.phone_Number}}</li>
+                        <li><i class="pe-7s-mail"></i><a href="mailto:">Email:{{glo.email.first.email}}</a></li>
+                      </ul>
+                      
+                      <hr>
+                      <ul class="social-icon bg-theme">
+                        {% for media in glo.company_socaial_medias.all %}
+                        <li><a href="{{ media.social_url }}" target="_blank"><i class="{{ media.social_icon }}" aria-hidden="true"></i></a></li>
+                        
+                        {% endfor %}
+                        {% comment %} <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                        <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                        <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                        <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+                        <li><a href="#"><i class="fa fa-dribbble" aria-hidden="true"></i></a></li> {% endcomment %}
+                      </ul>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                  <div class="footer-item">
+                    <div class="footer-title">
+                      <h4>Our Peges </h4>
+                      <div class="border-style-2"></div>
+                    </div>
+                    <ul class="footer-list border-deshed color-icon">
+                      <li><i class="fas fa-angle-right"></i>
+                        <a href="{% url 'doctor_team' %}">About Us</a></li>
+                      <li><i class="fas fa-angle-right"></i>
+                        <a href="">Services</a></li>
+                      <li><i class="fas fa-angle-right"></i>
+                        <a href="{% url 'protfolio' %}">Gallery</a></li>
+                      <li><i class="fas fa-angle-right"></i>
+                        <a href="{% url 'blog' %}">Blog</a></li>
+                      <li><i class="fas fa-angle-right"></i>
+                        <a href="{% url 'contact' %}">Contact</a></li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="col-md-3">
+                  <div class="footer-item">
+                    <div class="footer-title">
+                      <h4>Our Services </h4>
+                      <div class="border-style-2"></div>
+                    </div>
+                    <ul class="footer-list border-deshed color-icon">
+                      <li><i class="fas fa-angle-right"></i>
+                        <a href="{% url 'cardiologists_dept' %}">Transplants</a></li>
+                      <li><i class="fas fa-angle-right"></i>
+                        <a href="{% url 'gastroenterology_dept' %}">Gastroenterology</a></li>
+                      <li><i class="fas fa-angle-right"></i>
+                        <a href="{% url 'orthopaedics_dept' %}">Orthopaedics</a></li>
+                      <li><i class="fas fa-angle-right"></i>
+                        <a href="{% url 'spine_dept' %}">Spine Care</a></li>
+                      <li><i class="fas fa-angle-right"></i>
+                        <a href="{% url 'cancer_dept' %}">Cancer Care</a></li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="col-md-3">
+                  <div class="footer-item">
+                    <div class="footer-item clearfix">
+                      <div class="footer-title">
+                        <h4>Fliker Feed</h4>
+                        <div class="border-style-1"></div>
+                      </div>
+                      <div class="flicker-feed gutter">
+
+                        {% for i in glo.footerImg.all|slice:9 %}
+                        <a href="{{i.img.url}}" class="lightbox-image" title="Image Caption Here"><img src="{{i.img.url}}" alt=""></a>
+                        {% endfor %}
+
+                        {% comment %} <a href="{% static 'temp/img/flicker/1.jpg' %}" class="lightbox-image" title="Image Caption Here"><img src="{% static 'temp/img/flicker/1.jpg' %}" alt=""></a>
+                        <a href="{% static 'temp/img/flicker/2.jpg' %}" class="lightbox-image" title="Image Caption Here"><img src="{% static 'temp/img/flicker/2.jpg' %}" alt=""></a>
+                        <a href="{% static 'temp/img/flicker/3.jpg' %}" class="lightbox-image" title="Image Caption Here"><img src="{% static 'temp/img/flicker/3.jpg' %}" alt=""></a>
+                        <a href="{% static 'temp/img/flicker/4.jpg' %}" class="lightbox-image" title="Image Caption Here"><img src="{% static 'temp/img/flicker/4.jpg' %}" alt=""></a>
+                        <a href="{% static 'temp/img/flicker/5.jpg' %}" class="lightbox-image" title="Image Caption Here"><img src="{% static 'temp/img/flicker/5.jpg' %}" alt=""></a>
+                        <a href="{% static 'temp/img/flicker/6.jpg' %}" class="lightbox-image" title="Image Caption Here"><img src="{% static 'temp/img/flicker/6.jpg' %}" alt=""></a>
+                        <a href="{% static 'temp/img/flicker/7.jpg' %}" class="lightbox-image" title="Image Caption Here"><img src="{% static 'temp/img/flicker/7.jpg' %}" alt=""></a>
+                        <a href="{% static 'temp/img/flicker/8.jpg' %}" class="lightbox-image" title="Image Caption Here"><img src="{% static 'temp/img/flicker/8.jpg' %}" alt=""></a>
+                        <a href="{% static 'temp/img/flicker/9.jpg' %}" class="lightbox-image" title="Image Caption Here"><img src="{% static 'temp/img/flicker/9.jpg' %}" alt=""></a> {% endcomment %}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>

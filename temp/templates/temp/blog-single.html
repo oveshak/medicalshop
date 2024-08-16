@@ -1,0 +1,284 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+    <title>Medicative Hospital || Health & Medical HTML Template</title>
+    {% endblock title %}
+
+    {% block css_file %}
+    {% include "temp/css.html" %}
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    {% endblock css_file %}
+
+    {% block content %}
+
+    <div class="preloader"></div>
+
+    <!-- Header navbar start -->
+    {% include "temp/header.html" %}
+    <!-- Header navbar end -->
+
+
+    <section class="inner-bg over-layer-black" style="background-image: url('{% static 'temp/img/bg/4.jpg' %}')">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="mini-title inner-style-2">
+                        <h3>Blog</h3>
+                        <p><a href="{% url 'index'  %}">Home</a> <span class="fa fa-angle-right"></span> <a href="{% url 'blog'  %}">Blog</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Posts -->
+    <div class="bg-f8">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                    <div class="margin-bottom-30">
+                        <img class="img-responsive" src="{{ blog.blog_img.url }}" alt="{{ blog.blog_title }}">
+                        <div class="blog-post">
+                            <ul class="list-inline blog-info">
+                                <li>By <a href="#">{{ blog.blog_Writer_name }}</a></li>
+                                <li>In <a href="#">Design</a></li>
+                                <li>Posted {{ blog.date|date:"F d, Y" }}</li>
+                            </ul>
+                            <h3><a href="#">{{ blog.blog_title }}</a></h3>
+                            <p>{{ blog.blog_desc|safe }}</p>
+                            <blockquote>
+                                <p>"Lorem ipsum dolor sit amet, consectetur adipiscing duis mollis, est non commodo luctus elit posuere erat a ante. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis lorem ipsum dolor sit amet, consectetur adipiscing"</p>
+                            </blockquote>
+                        </div>
+                    </div>
+                
+                    <!-- Blog Post Author -->
+                    <div class="blog-admin margin-bottom-30">
+                        <img src="{{ blog.blog_Writer_img.url }}" alt="{{ blog.blog_Writer_name }}">
+                        <div class="blog-admin-desc">
+                            <div class="clearfix">
+                                <h5>{{ blog.blog_Writer_name }}</h5>
+                                <ul class="list-inline">
+                                    {% if blog.blog_Writer_fb_url %}
+                                    <li><a href="{{ blog.blog_Writer_fb_url }}"><i class="fa fa-facebook"></i></a></li>
+                                    {% endif %}
+                                    {% if blog.blog_Writer_twiter_url %}
+                                    <li><a href="{{ blog.blog_Writer_twiter_url }}"><i class="fa fa-twitter"></i></a></li>
+                                    {% endif %}
+                                    {% if blog.blog_Writer_linkdin_url %}
+                                    <li><a href="{{ blog.blog_Writer_linkdin_url }}"><i class="fa fa-linkedin"></i></a></li>
+                                    {% endif %}
+                                </ul>
+                            </div>
+                            <p>{{ blog.blog_Writer_desc }}</p>
+                        </div>
+                    </div>
+                    <!-- End Blog Post Author -->
+                    <div class="mini-title">
+                        <h3>Comments</h3>
+                    </div>
+                    <!-- Blog Comments -->
+                    <div class="row blog-comments margin-bottom-30">
+                        <div class="col-sm-2">
+                            <img src="{% static 'temp/img/blog/a2.jpg' %}" alt="">
+                        </div>
+                        <div class="col-sm-10">
+                            <div class="comment">
+                                <h5>
+                                    Dan Mulholland
+                                    <span>5 hours ago / <a href="#">Reply</a></span>
+                                </h5>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae, gravida pellentesque urna varius vitae. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod..</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End Blog Comments -->
+
+                    <!-- Blog Comments -->
+                    <div class="row blog-comments blog-comments-reply margin-bottom-30">
+                        <div class="col-sm-2">
+                            <img src="{% static 'temp/img/blog/a1.jpg' %}" alt="">
+                        </div>
+                        <div class="col-sm-10">
+                            <div class="comment">
+                                <h5>
+                                    Lauren M. Massucci
+                                    <span>6 hours ago / <a href="#">Reply</a></span>
+                                </h5>
+                                <p>Gravida pellentesque urna varius vitae, gravida pellentesque urna varius vitae. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod..</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End Blog Comments -->
+
+                    <!-- Blog Comments -->
+                    <div class="row blog-comments margin-bottom-50">
+                        <div class="col-sm-2">
+                            <img src="{% static 'temp/img/blog/a3.jpg' %}" alt="">
+                        </div>
+                        <div class="col-sm-10">
+                            <div class="comment">
+                                <h5>
+                                    Nicholas J. Calabrese
+                                    <span>7 hours ago / <a href="#">Reply</a></span>
+                                </h5>
+                                <p>Nam viverra euismod odio, gravida pellentesque urna varius vitae, gravida pellentesque urna varius vitae. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod..</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End Blog Comments -->
+
+                    <hr>
+                    <div class="mini-title">
+                        <h3>Post a Comment</h3>
+                    </div>
+                    <!-- Form -->
+                    <form action="#" method="post">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div>
+                                    <input type="text" name="name" id="name" placeholder="Name" class="form-control">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div>
+                                    <input type="text" name="email" id="email" placeholder="Email" class="form-control">
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <textarea rows="8" name="message" id="message" placeholder="Write comment here ..." class="form-control"></textarea>
+                            </div>
+                        </div>
+
+
+                            <p><button type="submit" class="btn btn-theme hvr-bounce-to-top">Submit</button></p>
+                    </form>
+                    <!-- End Form -->
+                </div>
+                <div class="col-md-3">
+                    <div class="blog-sideber">
+                        <div class="widget">
+                            <div class="blog-search">
+                                <form action="#" class="clearfix">
+                                    <input type="search" placeholder="Search Here..">
+                                    <button type="submit">
+                                        <span class="pe-7s-search"></span>
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="widget clearfix">
+                            <div class="sideber-title">
+                                <h4>About Us</h4>
+                            </div>
+                            <div class="sideber-content about">
+                                <div class="testimonial-carousel-one">
+                                    <div class="item">
+                                        <p><i class="fa fa-quote-left"></i> While military organisations have existed as long as government itself, the idea of a standing police force is a relatively modern concept. <i class="fa fa-quote-right"></i></p>
+                                    </div>
+                                    <div class="item">
+                                        <p><i class="fa fa-quote-left"></i> While military organisations have existed as long as government itself, the idea of a standing police force is a relatively modern concept. <i class="fa fa-quote-right"></i></p>
+                                    </div>
+                                    <div class="item">
+                                        <p><i class="fa fa-quote-left"></i> While military organisations have existed as long as government itself, the idea of a standing police force is a relatively modern concept. <i class="fa fa-quote-right"></i></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="widget">
+                            <div class="sideber-title">
+                                <h4>Recent Posts</h4>
+                            </div>
+                            <div class="footer-item-3 style-1 news-item">
+                                <div class="news-section">
+                                    {% for post in allBlog.blog_item.all|slice:":3" %}
+    <div class="news-area clearfix">
+        <div class="news-img">
+            <a href="{% url 'blog_details' slug=post.slug %}">
+                <img src="{{ post.blog_img.url }}" alt="{{ post.blog_title }}">
+                <span class="fa fa-link"></span>
+            </a>
+        </div>
+        <div class="news-content">
+            <a href="{% url 'blog_details' slug=post.slug %}">{{ post.blog_title }}</a><br>
+            <span>{{ post.date|date:"d M Y" }}</span>
+        </div>
+    </div>
+{% endfor %}
+
+                            </div>
+                        </div>
+
+                        <div class="widget clearfix">
+                            <div class="sideber-title">
+                                <h4>Categories</h4>
+                            </div>
+                            <div class="sideber-content">
+                                <ul>
+                                  <li> <a href="#"><i class="fa fa-angle-right"></i> Latest News (17)</a> </li>
+                                  <li> <a href="#"><i class="fa fa-angle-right"></i> Recent Project (21)</a> </li>
+                                  <li> <a href="#"><i class="fa fa-angle-right"></i> Resources (27)</a> </li>
+                                  <li> <a href="#"><i class="fa fa-angle-right"></i> News (119)</a> </li>
+                                  <li> <a href="#"><i class="fa fa-angle-right"></i> Events (05)</a> </li>
+                                  <li> <a href="#"><i class="fa fa-angle-right"></i> Alerts (18)</a> </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="widget clearfix">
+                            <div class="sideber-title">
+                                <h4>Popular Tags</h4>
+                            </div>
+                            <div class="sideber-content">
+                                <ul class="list-inline tags margin-top-20">
+                                  <li class="hvr-rectangle-out"> <a href="#"> Resources </a> </li>
+                                  <li class="hvr-rectangle-out"> <a href="#"> News </a> </li>
+                                  <li class="hvr-rectangle-out"> <a href="#"> Recent Project</a> </li>
+                                  <li class="hvr-rectangle-out"> <a href="#"> Events </a> </li>
+                                  <li class="hvr-rectangle-out"> <a href="#"> Alerts</a> </li>
+                                  <li class="hvr-rectangle-out"> <a href="#"> Complete Project</a> </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="widget clearfix">
+                            <div class="sideber-title">
+                                <h4>Archive</h4>
+                            </div>
+                            <div class="sideber-content">
+                                <ul>
+                                  <li> <a href="#"><i class="fa fa-caret-right"></i> January 2018</a> </li>
+                                  <li> <a href="#"><i class="fa fa-caret-right"></i> May 2018</a> </li>
+                                  <li> <a href="#"><i class="fa fa-caret-right"></i> June 2018</a> </li>
+                                  <li> <a href="#"><i class="fa fa-caret-right"></i> Febuary 2018</a> </li>
+                                  <li> <a href="#"><i class="fa fa-caret-right"></i> April 2018</a> </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Blog Posts -->
+
+   <!-- divider start -->
+   {% include "temp/company.html" %}
+    <!-- divider end -->
+
+    <!-- Footer Style start -->
+    {% include "temp/footer.html" %}
+    <!-- Footer Style End -->
+
+  
+    <a href="#" class="scrollup"><i class="pe-7s-up-arrow" aria-hidden="true"></i></a>
+    <!-- jQuery -->
+    {% endblock content %}
+
+    {% block js_file %}
+    {% include "temp/js.html" %}
+    {% endblock js_file %}

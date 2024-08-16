@@ -1,0 +1,153 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+    <title>Medicative Hospital || Health & Medical HTML Template</title>
+    {% endblock title %}
+
+    {% block css_file %}
+    {% include "temp/css.html" %}
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    {% endblock css_file %}
+
+    {% block content %}
+
+    <div class="preloader"></div>
+
+    <!-- Header navbar start -->
+    {% include "temp/header.html" %}
+    <!-- Header navbar end -->
+
+
+
+
+    <section class="inner-bg over-layer-black" style="background-image: url('{% static 'temp/img/bg/4.jpg' %}')">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="mini-title inner-style-2">
+                        <h3>Contact Us</h3>
+                        <p><a href="{% url 'index' %}">Home</a> <span class="fa fa-angle-right"></span> <a href="{% url 'contact' %}">Contact</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- service start -->
+    
+    <section class="service-area contact-info">
+        <div class="container padding-bottom-none">
+            <div class="section-content">
+                <div class="row">
+                    <div class="col-sm-12 col-md-4">
+                        <div class="service-item style-1 bg-f8">
+                            <div class="service-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="content">
+                                <h5><a href="#" class="color-333">Contact Info</a></h5>
+                                <p>{{ glo.adress }}</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-md-4">
+                        <div class="service-item style-1 bg-f8">
+                            <div class="service-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div class="content">
+                                <h5><a href="#" class="color-333">Business Hours</a></h5>
+                                {% for hour in glo.busiNess_hours.all %}
+                                    <p>{{ hour.day_name }}: {{ hour.day_openging }} to {{ hour.day_ending }}</p>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-md-4">
+                        <div class="service-item style-1 bg-f8">
+                            <div class="service-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="content">
+                                <h5><a href="#" class="color-333">Email</a></h5>
+                                {% for email in glo.email.all %}
+                                    <p>{{email.email}}</p>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- service end -->
+    <hr>
+
+    <section>
+        <div class="container padding-bottom-80">
+            <div class="section-content">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="section-title margin-left-20 ">
+                            <h6>Contact</h6>
+                            <h2>Get in Touch</h2>
+                            <div class="small-line-border-2"></div>
+                        </div>
+                        <form id="ajax-contact" method="POST">
+                            {% csrf_token %}
+                            <div class="col-md-6">
+                                <input type="text" name="name" id="name" class="form-control" placeholder="Your Name" required>
+                            </div>
+                            <div class="col-md-6">
+                                <input type="email" name="email" id="email" class="form-control" placeholder="Your Email"  required>
+                            </div>
+                            <div class="col-md-12">
+                                <input type="text" name="subject" class="form-control" placeholder="Subject" id="subject" required>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="contact-textarea">
+                                    <textarea class="form-control" rows="6" placeholder="Wright Message" id="message" name="message" required></textarea>
+                                    <button class="btn btn-theme" type="submit" value="Submit Form">Send Message</button>
+                                </div>
+                            </div>
+                            {% comment %} <div id="form-messages"></div> {% endcomment %}
+                        </form>
+                    </div>
+                    <div class="col-md-6">
+                        <div id="map" class="embed-responsive embed-responsive-16by9">
+                            <iframe class="embed-responsive-item" src="{{glo.google_map_url}}" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+   <!-- divider start -->
+   {% include "temp/company.html" %}
+    <!-- divider end -->
+
+    <!-- Footer Style start -->
+    {% include "temp/footer.html" %}
+
+    
+    <!-- Footer Style End -->
+
+  
+    <a href="#" class="scrollup"><i class="pe-7s-up-arrow" aria-hidden="true"></i></a>
+    <!-- jQuery -->
+    
+
+    {% endblock content %}
+
+    {% block js_file %}
+    {% include "temp/js.html" %}
+    {% endblock js_file %}
+    
+    

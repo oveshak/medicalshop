@@ -1,0 +1,973 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+    <title>Medicative Hospital || Health & Medical HTML Template</title>
+    {% endblock title %}
+
+    {% block css_file %}
+    {% include "temp/css.html" %}
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    {% endblock css_file %}
+
+    {% block content %}
+
+    {% comment %} <div class="preloader"></div> {% endcomment %}
+
+    <!-- Header navbar start -->
+  {% include "temp/header.html" %}
+    <!-- Header navbar end -->
+
+    <!-- Start  bootstrap-touch-slider Slider -->
+     {% include "temp/hero.html" %}
+     <!-- End  bootstrap-touch-slider Slider -->
+
+    <!-- divider start -->
+    {% include "temp/about.html" %}
+    <!-- divider end -->
+
+    <!-- welcome start -->
+    <section>
+        <div class="container">
+            <div class="section-content">
+                <div class="row">
+                    <div class="col-md-7">
+                        <h2>Why chose us</h2>
+                        <h3 class="color-defult">Get a world class Health service now</h3>
+                        <p class="lead">Medicative Hospital is here for you. Call <span class="ff-p">+00 999 3030</span></p>
+                        <p><span class="fw-b">Consectetur</span> adipisicing elit. Ratione ut culpa, illo, odit tempore dignissimos nisi consequatur voluptatem, eveniet quaerat officiis sed ad et fugiat praesentium nesciunt sunt ipsa quam magnam.</p>
+                        <div class="row margin-top-20">
+                            <div class="col-md-6">
+                                <img class="margin-top-10" src="{% static 'temp/img/services/s1.jpg' %}" alt="">
+                            </div>
+                            <div class="col-md-6">
+                                <p>Medicative <span class="color-defult fw-b">adipisicing elit</span>. Animi eveniet ipsam, error dolorum impedit debitis, officiis sint saepe similique quasi dolor, ut. Ipsum quaerat saepe, sapiente doloribus ab laudantium ipsam!</p>
+                            </div>
+                        </div>
+                        <div class="clearfix margin-top-20 margin-right-10"> 
+                            <div class="skills" data-percent="85%">
+                                <div class="title-bar">
+                                  <h5>Cardiology</h5>
+                                </div>
+                                <span>85%</span>
+                                <div class="skillbar-1"></div>  
+                            </div>
+                            <div class="skills" data-percent="60%">
+                                <div class="title-bar">
+                                  <h5>General Practice</h5>
+                                </div>
+                                <span>60%</span>
+                                <div class="skillbar-2"></div>  
+                            </div>
+                            <div class="skills" data-percent="89%">
+                                <div class="title-bar">
+                                  <h5>General surgery</h5>
+                                </div>
+                                <span>89%</span>
+                                <div class="skillbar-3"></div>  
+                            </div>
+                            <div class="skills" data-percent="60%">
+                                <div class="title-bar">
+                                  <h5>Pharmacology</h5>
+                                </div>
+                                <span>60%</span>
+                                <div class="skillbar-4"></div>  
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="col-md-5">
+                        <div>
+                           <img alt="" src="{% static 'temp/img/services/w1.jpg' %}"> 
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- welcome end -->
+
+    <!-- service start -->
+    <section class="service-area bg-f8 animatedParent animateOnce">
+        <div class="container">
+            <div class="section-title">
+                <!-- ... (section title content remains unchanged) ... -->
+            </div>
+            <div class="section-content">
+                <div class="row">
+
+
+                    {% for service in service.about_item.all %}
+                    <div class="col-xs-12 col-sm-6 col-md-4">
+                        <div class="service-item text-center style-3">
+                            <i class="{{service.icon}}"></i>
+                            <h4><a href="#">{{service.title}}</a></h4>
+                            <div class="border-center"></div>
+                            <p>{{service.desc}}</p>
+                            <button type="submit" class="btn btn-theme margin-top-20" data-text="Send Message">Read More</button>
+                        </div>
+                    </div>
+                    {% endfor %}
+
+                    {% comment %} <div class="col-xs-12 col-sm-6 col-md-4">
+                        <div class="service-item text-center style-3">
+                            <i class="fas fa-heartbeat"></i>
+                            <h4><a href="#">Heart Transplants</a></h4>
+                            <div class="border-center"></div>
+                            <p>Provide direct support to an individual, family or community by paying medical expenses for service.</p>
+                            <button type="submit" class="btn btn-theme margin-top-20" data-text="Send Message">Read More</button>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-4">
+                        <div class="service-item text-center style-3">
+                            <i class="fas fa-crutch"></i>
+                            <h4><a href="#">Orthopaedics</a></h4>
+                            <div class="border-center"></div>
+                            <p>Provide direct support to an individual, family or community by paying medical expenses for service.</p>
+                            <button type="submit" class="btn btn-theme margin-top-20" data-text="Send Message">Read More</button>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-4">
+                        <div class="service-item text-center style-3">
+                            <i class="fas fa-diagnoses"></i>
+                            <h4><a href="#">Gastroenterology</a></h4>
+                            <div class="border-center"></div>
+                            <p>Provide direct support to an individual, family or community by paying medical expenses for service.</p>
+                            <button type="submit" class="btn btn-theme margin-top-20" data-text="Send Message">Read More</button>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-4">
+                        <div class="service-item text-center style-3">
+                            <i class="fas fa-brain"></i>
+                            <h4><a href="#">Neurosciences</a></h4>
+                            <div class="border-center"></div>
+                            <p>Provide direct support to an individual, family or community by paying medical expenses for service.</p>
+                            <button type="submit" class="btn btn-theme margin-top-20" data-text="Send Message">Read More</button>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-4">
+                        <div class="service-item text-center style-3">
+                            <i class="fas fa-x-ray"></i>
+                            <h4><a href="#">Spine Care</a></h4>
+                            <div class="border-center"></div>
+                            <p>Provide direct support to an individual, family or community by paying medical expenses for service.</p>
+                            <button type="submit" class="btn btn-theme margin-top-20" data-text="Send Message">Read More</button>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-4">
+                        <div class="service-item text-center style-3">
+                            <i class="fas fa-radiation"></i>
+                            <h4><a href="#">Cancer Care</a></h4>
+                            <div class="border-center"></div>
+                            <p>Provide direct support to an individual, family or community by paying medical expenses for service.</p>
+                            <button type="submit" class="btn btn-theme margin-top-20" data-text="Send Message">Read More</button>
+                        </div>
+                    </div> {% endcomment %}
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- service end -->
+
+    <!-- appointment start -->
+    <section class=" animatedParent animateOnce">
+        <div class="container padding-bottom-none">
+            <div class="section-content">
+                <div class="row">
+                    <div class="col-md-6">
+                        <img class="animated fadeInLeftShort slow delay-500 booking-cantact-img" src="{% static 'temp/img/bg/c1.png' %}" alt="">
+                    </div>
+                    <div class="col-md-6 bg-f8 padding-tb margin-bottom-80 animated fadeInRightShort slow delay-500">
+                        <div class="booking-from">
+                            <h2>Make An <span class="color-defult">Appointment</span></h2>
+                            <div class="border-style-2 margin-bottom-30"></div>
+                            <p class="margin-bottom-30">Consectetur adipisicing elit. Id dignissimos atque debitis esse possimus, <br>fuga tenetur rem et. Vitae, repudiandae.</p>
+                            <form method="POST" action="#">
+
+                                {% csrf_token %}
+
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <input type="text" name="fname" id="fname" class="form-control" placeholder="First Name" required>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <input type="text" name="lname" id="lname" class="form-control" placeholder="Last Name" required>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <input type="text" name="subject" class="form-control" placeholder="Input Subject" id="subject" required>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <input type="date" name="date" class="form-control" placeholder="Input Date" id="Reservation" required>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <input type="email" name="email" class="form-control" placeholder="Your Email Here" id="email" required>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <input type="text" name="phone" class="form-control" placeholder="Your Phone" id="phone" required>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="contact-textarea">
+                                            <textarea class="form-control"  rows="6" placeholder="Wright Message" id="message" name="message" required></textarea>
+                                            <button class="btn btn-theme" type="submit" value="Submit Form">Send Message</button>
+                                        </div>
+                                    </div>
+                                    <div id="form-messages"></div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- appointment end -->
+
+   <!-- divider start -->
+   {% include "temp/company.html" %}
+
+    <!-- divider end -->
+
+     <!-- portfolio start -->
+    <section class="gallery-area">
+        <div class="container">
+            <div class="section-title">
+                <div class="row">
+                    <div class="col-md-8 col-md-offset-2 text-center">
+                        <h2>Our<span class="color-defult"> Portfolio</span></h2>
+                        <div class="line-border-center bg-defult"></div>
+                        <p>Repellendus error placeat numquam doloribus perferendis consequatur maxime molestiae <br>quidem quaerat accusantium omnis repudiandae nulla recusandae</p>
+                    </div>
+                </div>
+            </div>
+            <div class="section-content">
+                <div class="row clearfix">
+                    <div class="gallery-filter-item text-center">
+                        <ul class="gallery-filter">
+                            <li class="active"><a href="#" data-filter="*" class="current">All Projects</a></li>
+                            {% for cat in category.all %}
+                            <li><a href="#" data-filter=".{{ cat.slug }}" class="current">{{ cat.name }}</a></li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+
+                    <div class="gallery col-3 gutter">
+                        {% for prot in protfolio.all %}
+                        <div class="gallery-item {{ prot.category.slug }}">
+                            <div class="thumb">
+                                <img src="{{ prot.image.url }}" alt="">
+                                <div class="gallery-hover">
+                                    <div class="gallery-info">
+                                        <div class="gallery-btn">
+                                            <a href="{{ prot.image.url }}" data-fancybox-group="gallery" class="lightbox-image" title="lightbox view"> <i class="fa-solid fa-swap"></i> </a>
+                                        </div>
+                                        <h4><a href="{{ prot.image.url }}" data-fancybox-group="gallery" class="lightbox-image" title="lightbox view">{{ prot.title }}</a></h4>
+                                        <p><a href="#">{{ prot.subtitle }}</a></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                        
+                        {% comment %} <div class="gallery-item gp-two">
+                            <div class="thumb">
+                                <img src="{% static 'temp/img/portfolio/1.jpg' %}" alt="">
+                                <div class="gallery-hover">
+                                    <div class="gallery-info">
+                                        <div class="gallery-btn">
+                                            <a href="{% static 'temp/img/portfolio/1.jpg' %}" data-fancybox-group="gallery" class="lightbox-image" title="lightbox view"> <i class="pe-7s-graph2"></i>  </a>
+                                        </div>
+                                        <h4><a href="{% static 'temp/img/portfolio/1.jpg' %}" data-fancybox-group="gallery" class="lightbox-image" title="lightbox view">Your title here</a></h4>
+                                        <p><a href="#">Sub Title here</a></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="gallery-item gp-three">
+                            <div class="thumb">
+                                <img src="{% static 'temp/img/portfolio/2.jpg' %}" alt="">
+                                <div class="gallery-hover">
+                                    <div class="gallery-info">
+                                        <div class="gallery-btn">
+                                            <a href="{% static 'temp/img/portfolio/2.jpg' %}" data-fancybox-group="gallery" class="lightbox-image" title="lightbox view"> <i class="pe-7s-graph2"></i>  </a>
+                                        </div>
+                                        <h4><a href="{% static 'temp/img/portfolio/2.jpg' %}" data-fancybox-group="gallery" class="lightbox-image" title="lightbox view">Your title here</a></h4>
+                                        <p><a href="#">Sub Title here</a></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="gallery-item gp-four">
+                            <div class="thumb">
+                                <img src="{% static 'temp/img/portfolio/3.jpg' %}" alt="">
+                                <div class="gallery-hover">
+                                    <div class="gallery-info">
+                                        <div class="gallery-btn">
+                                            <a href="{% static 'temp/img/portfolio/3.jpg' %}" data-fancybox-group="gallery" class="lightbox-image" title="lightbox view"> <i class="pe-7s-graph2"></i>  </a>
+                                        </div>
+                                        <h4><a href="{% static 'temp/img/portfolio/3.jpg' %}" data-fancybox-group="gallery" class="lightbox-image" title="lightbox view">Your title here</a></h4>
+                                        <p><a href="#">Sub Title here</a></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="gallery-item gp-five">
+                            <div class="thumb">
+                                <img src="{% static 'temp/img/portfolio/4.jpg' %}" alt="">
+                                <div class="gallery-hover">
+                                    <div class="gallery-info">
+                                        <div class="gallery-btn">
+                                            <a href="{% static 'temp/img/portfolio/4.jpg' %}" data-fancybox-group="gallery" class="lightbox-image" title="lightbox view"> <i class="pe-7s-graph2"></i>  </a>
+                                        </div>
+                                        <h4><a href="{% static 'temp/img/portfolio/4.jpg' %}" data-fancybox-group="gallery" class="lightbox-image" title="lightbox view">Your title here</a></h4>
+                                        <p><a href="#">Sub Title here</a></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="gallery-item gp-two">
+                            <div class="thumb">
+                                <img src="{% static 'temp/img/portfolio/5.jpg' %}" alt="">
+                                <div class="gallery-hover">
+                                    <div class="gallery-info">
+                                        <div class="gallery-btn">
+                                            <a href="{% static 'temp/img/portfolio/5.jpg' %}" data-fancybox-group="gallery" class="lightbox-image" title="lightbox view"> <i class="pe-7s-graph2"></i>  </a>
+                                        </div>
+                                        <h4><a href="{% static 'temp/img/portfolio/5.jpg' %}" data-fancybox-group="gallery" class="lightbox-image" title="lightbox view">Your title here</a></h4>
+                                        <p><a href="#">Sub Title here</a></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="gallery-item gp-three">
+                            <div class="thumb">
+                                <img src="{% static 'temp/img/portfolio/6.jpg' %}" alt="">
+                                <div class="gallery-hover">
+                                    <div class="gallery-info">
+                                        <div class="gallery-btn">
+                                            <a href="{% static 'temp/img/portfolio/6.jpg' %}" data-fancybox-group="gallery" class="lightbox-image" title="lightbox view"> <i class="pe-7s-graph2"></i>  </a>
+                                        </div>
+                                        <h4><a href="{% static 'temp/img/portfolio/6.jpg' %}" data-fancybox-group="gallery" class="lightbox-image" title="lightbox view">Your title here</a></h4>
+                                        <p><a href="#">Sub Title here</a></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> {% endcomment %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- portfolio end -->
+
+   <!-- divider start -->
+    <section class="divider divider-video over-layer-white" style="background-image:url({% static 'temp/img/bg/6.jpg' %});">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <a href="https://youtu.be/vX-lG9nb1fU" data-fancybox-group="gallery" class="lightbox-image" title="lightbox view"><i class="icon icon-Play"></i></a>    
+                </div> 
+            </div> 
+        </div> 
+    </section>
+    <!-- divider end -->
+
+    <!-- department start -->    
+    <section class="bg-f8">
+        <div class="container">
+            <div class="section-title">
+                <div class="row">
+                    <div class="col-md-8 col-md-offset-2">
+                        <div class="text-center">
+                            <h2>OUR <span class="color-defult"> DEPARTMENTS</span></h2>
+                            <div class="line-border-center bg-defult"></div>
+                            <p>Consequatur alias incidunt cumque officiis, quas eius quaerat ut itaque laudantium corporis nobis ipsum, voluptates at, adipisci fugiat hic voluptate consequuntur porro.</p>
+                        </div>
+                    </div>
+                </div> 
+            </div>
+            
+            <div class="section-content">
+                <div class="row">
+                    <div class="col-md-4 col-sm-6">
+                        <div class="practice-item-1">
+                            <div class="practice-img">
+                                <a href="#">
+                                    <img src="{% static 'temp/img/services/4.jpg' %}" alt="">
+                                    <span class="flaticon-heart-1"></span>
+                                </a>
+                            </div>
+                            <div class="practice-content">
+                                <h4><a href="#">Medical evacuation</a></h4>
+                                <p>Personal Health Record makes it easy to join and stay on a wellness program - lose weight or manage a chronic condition easily.</p>
+                                <a href="#" class="btn-theme hvr-bounce-to-top"> Read more</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-6">
+                        <div class="practice-item-1">
+                            <div class="practice-img">
+                                <a href="#">
+                                    <img src="{% static 'temp/img/services/5.jpg' %}" alt="">
+                                    <span class="flaticon-heart-1"></span>
+                                </a>
+                            </div>
+                            <div class="practice-content">
+                                <h4><a href="#"> Physical examination</a></h4>
+                                <p>Personal Health Record makes it easy to join and stay on a wellness program - lose weight or manage a chronic condition easily.</p>
+                                <a href="#" class="btn-theme hvr-bounce-to-top"> Read more</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-6">
+                        <div class="practice-item-1">
+                            <div class="practice-img">
+                                <a href="#">
+                                    <img src="{% static 'temp/img/services/6.jpg' %}" alt="">
+                                    <span class="flaticon-heart-1"></span>
+                                </a>
+                            </div>
+                            <div class="practice-content">
+                                <h4><a href="#"> Ultrasound Endoscopy</a></h4>
+                                <p>Personal Health Record makes it easy to join and stay on a wellness program - lose weight or manage a chronic condition easily.</p>
+                                <a href="#" class="btn-theme hvr-bounce-to-top"> Read more</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-6">
+                        <div class="practice-item-1">
+                            <div class="practice-img">
+                                <a href="#">
+                                    <img src="{% static 'temp/img/services/1.jpg' %}" alt="">
+                                    <span class="flaticon-heart-1"></span>
+                                </a>
+                            </div>
+                            <div class="practice-content">
+                                <h4><a href="#"> Radiology / X-Ray</a></h4>
+                                <p>Personal Health Record makes it easy to join and stay on a wellness program - lose weight or manage a chronic condition easily.</p>
+                                <a href="#" class="btn-theme hvr-bounce-to-top"> Read more</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-6">
+                        <div class="practice-item-1">
+                            <div class="practice-img">
+                                <a href="#">
+                                    <img src="{% static 'temp/img/services/8.jpg' %}" alt="">
+                                    <span class="flaticon-heart-1"></span>
+                                </a>
+                            </div>
+                            <div class="practice-content">
+                                <h4><a href="#"> CRITICAL CARE</a></h4>
+                                <p>Personal Health Record makes it easy to join and stay on a wellness program - lose weight or manage a chronic condition easily.</p>
+                                <a href="#" class="btn-theme hvr-bounce-to-top"> Read more</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-6">
+                        <div class="practice-item-1">
+                            <div class="practice-img">
+                                <a href="#">
+                                    <img src="{% static 'temp/img/services/3.jpg' %}" alt="">
+                                    <span class="flaticon-heart-1"></span>
+                                </a>
+                            </div>
+                            <div class="practice-content">
+                                <h4><a href="#"> Safe & Secure</a></h4>
+                                <p>Personal Health Record makes it easy to join and stay on a wellness program - lose weight or manage a chronic condition easily.</p>
+                                <a href="#" class="btn-theme hvr-bounce-to-top"> Read more</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- department end -->
+
+    <!-- Team start -->
+    <section class="team-area">
+        <div class="container">
+            <div class="section-title">
+                <div class="row">
+                    <div class="col-md-8 col-md-offset-2 text-center">
+                        <h2><span class="color-defult">Experience</span> Doctor</h2>
+                        <div class="line-border-center bg-defult"></div>
+                        <p>Repellendus error placeat numquam doloribus perferendis consequatur maxime molestiae soluta Corporis quidem quaerat accusantium omnis repudiandae nulla recusandae</p>
+                    </div>
+                </div>
+            </div>
+            <div class="section-content">
+                <div class="row">
+                    <div class="team-carousel">
+
+                        {% for doctor in doctor %}
+                        <div class="item">
+                            <div class="team-item-2">
+                                <img src="{{ doctor.img.url }}" alt="{{ doctor.dr_name }}" />
+
+                                <div class="team-contact">
+                                    
+                                    <ul>
+                                        {% for social in doctor.social_media.all %}
+                                        <li>
+                                            <a href="{{ social.social_url }}">
+                                              <i class="{{ social.social_icon }}"></i>
+                                            </a>
+                                          </li>
+                                          {% endfor %}
+                                    </ul>
+                                </div>
+                                <div class="team-content">
+                                    <h4><a href="{% url 'doctor_details' slug=doctor.slug %}">{{ doctor.dr_name }}</a></h4>
+              <h6>{{ doctor.profession_name }}</h6>
+                                    <div class="team-content-icon">
+                                        <i class="flaticon-heart"></i>
+                                    </div>
+                                </div>
+                                <div class="timetable">
+                                    {% for opening_hour in doctor.opening_hours.all|slice:":3" %}
+                                    <div class="item">
+                                        <div class="label">{{ opening_hour.day_name }}</div>
+                                        <div class="value"> {{ opening_hour.day_opening }} - {{ opening_hour.day_closing }}</div>
+                                    </div>
+                                    {% endfor %}
+                                    {% comment %} <div class="item">
+                                        <div class="label">Saturday</div>
+                                        <div class="value">10:00 - 16:00</div>
+                                    </div>
+                                    <div class="item">
+                                        <div class="label">Sunday</div>
+                                        <div class="value">12:00 - 14:00</div>
+                                    </div> {% endcomment %}
+                                    <a href="{% url 'doctor_details' slug=doctor.slug %}" class="btn-theme text-center btn-block"> View Profile</a>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+
+
+
+                        {% comment %} <div class="item">
+                            <div class="team-item-2">
+                                <img src="{% static 'temp/img/team/1.png' %}" alt="">
+                                <div class="team-contact">
+                                    <ul>
+                                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-behance"></i></a></li>
+                                    </ul>
+                                </div>
+                                <div class="team-content">
+                                    <h4><a href="#">Dr. Mokles Beller</a></h4>
+                                    <h6>Cardiologists</h6>
+                                    <div class="team-content-icon">
+                                        <i class="flaticon-heart"></i>
+                                    </div>
+                                </div>
+                                <div class="timetable">
+                                    <div class="item">
+                                        <div class="label">Monday-Friday</div>
+                                        <div class="value">08:00 - 17:00</div>
+                                    </div>
+                                    <div class="item">
+                                        <div class="label">Saturday</div>
+                                        <div class="value">10:00 - 16:00</div>
+                                    </div>
+                                    <div class="item">
+                                        <div class="label">Sunday</div>
+                                        <div class="value">12:00 - 14:00</div>
+                                    </div>
+                                    <a href="#" class="btn-theme text-center btn-block"> View Profile</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="team-item-2">
+                                <img src="{% static 'temp/img/team/2.png' %}" alt="">
+                                <div class="team-contact">
+                                    <ul>
+                                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-behance"></i></a></li>
+                                    </ul>
+                                </div>
+                                <div class="team-content">
+                                    <h4><a href="#">Dr. George Beller</a></h4>
+                                    <h6>Cardiologists</h6>
+                                    <div class="team-content-icon">
+                                        <i class="flaticon-heart"></i>
+                                    </div>
+                                </div>
+                                <div class="timetable">
+                                    <div class="item">
+                                        <div class="label">Monday-Friday</div>
+                                        <div class="value">08:00 - 17:00</div>
+                                    </div>
+                                    <div class="item">
+                                        <div class="label">Saturday</div>
+                                        <div class="value">10:00 - 16:00</div>
+                                    </div>
+                                    <div class="item">
+                                        <div class="label">Sunday</div>
+                                        <div class="value">12:00 - 14:00</div>
+                                    </div>
+                                    <a href="#" class="btn-theme text-center btn-block"> View Profile</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="team-item-2">
+                                <img src="{% static 'temp/img/team/3.png' %}" alt="">
+                                <div class="team-contact">
+                                    <ul>
+                                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-behance"></i></a></li>
+                                    </ul>
+                                </div>
+                                <div class="team-content">
+                                    <h4><a href="#">Dr. George Beller</a></h4>
+                                    <h6>Cardiologists</h6>
+                                    <div class="team-content-icon">
+                                        <i class="flaticon-heart"></i>
+                                    </div>
+                                </div>
+                                <div class="timetable">
+                                    <div class="item">
+                                        <div class="label">Monday-Friday</div>
+                                        <div class="value">08:00 - 17:00</div>
+                                    </div>
+                                    <div class="item">
+                                        <div class="label">Saturday</div>
+                                        <div class="value">10:00 - 16:00</div>
+                                    </div>
+                                    <div class="item">
+                                        <div class="label">Sunday</div>
+                                        <div class="value">12:00 - 14:00</div>
+                                    </div>
+                                    <a href="#" class="btn-theme text-center btn-block"> View Profile</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="team-item-2">
+                                <img src="{% static 'temp/img/team/4.png' %}" alt="">
+                                <div class="team-contact">
+                                    <ul>
+                                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-behance"></i></a></li>
+                                    </ul>
+                                </div>
+                                <div class="team-content">
+                                    <h4><a href="#">Dr. George Beller</a></h4>
+                                    <h6>Cardiologists</h6>
+                                    <div class="team-content-icon">
+                                        <i class="flaticon-heart"></i>
+                                    </div>
+                                </div>
+                                <div class="timetable">
+                                    <div class="item">
+                                        <div class="label">Monday-Friday</div>
+                                        <div class="value">08:00 - 17:00</div>
+                                    </div>
+                                    <div class="item">
+                                        <div class="label">Saturday</div>
+                                        <div class="value">10:00 - 16:00</div>
+                                    </div>
+                                    <div class="item">
+                                        <div class="label">Sunday</div>
+                                        <div class="value">12:00 - 14:00</div>
+                                    </div>
+                                    <a href="#" class="btn-theme text-center btn-block"> View Profile</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="team-item-2">
+                                <img src="{% static 'temp/img/team/5.png' %}" alt="">
+                                <div class="team-contact">
+                                    <ul>
+                                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-behance"></i></a></li>
+                                    </ul>
+                                </div>
+                                <div class="team-content">
+                                    <h4><a href="#">Dr. George Beller</a></h4>
+                                    <h6>Cardiologists</h6>
+                                    <div class="team-content-icon">
+                                        <i class="flaticon-heart"></i>
+                                    </div>
+                                </div>
+                                <div class="timetable">
+                                    <div class="item">
+                                        <div class="label">Monday-Friday</div>
+                                        <div class="value">08:00 - 17:00</div>
+                                    </div>
+                                    <div class="item">
+                                        <div class="label">Saturday</div>
+                                        <div class="value">10:00 - 16:00</div>
+                                    </div>
+                                    <div class="item">
+                                        <div class="label">Sunday</div>
+                                        <div class="value">12:00 - 14:00</div>
+                                    </div>
+                                    <a href="#" class="btn-theme text-center btn-block"> View Profile</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="team-item-2">
+                                <img src="{% static 'temp/img/team/3.png' %}" alt="">
+                                <div class="team-contact">
+                                    <ul>
+                                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-behance"></i></a></li>
+                                    </ul>
+                                </div>
+                                <div class="team-content">
+                                    <h4><a href="#">Dr. George Beller</a></h4>
+                                    <h6>Cardiologists</h6>
+                                    <div class="team-content-icon">
+                                        <i class="flaticon-heart"></i>
+                                    </div>
+                                </div>
+                                <div class="timetable">
+                                    <div class="item">
+                                        <div class="label">Monday-Friday</div>
+                                        <div class="value">08:00 - 17:00</div>
+                                    </div>
+                                    <div class="item">
+                                        <div class="label">Saturday</div>
+                                        <div class="value">10:00 - 16:00</div>
+                                    </div>
+                                    <div class="item">
+                                        <div class="label">Sunday</div>
+                                        <div class="value">12:00 - 14:00</div>
+                                    </div>
+                                    <a href="#" class="btn-theme text-center btn-block"> View Profile</a>
+                                </div>
+                            </div>
+                        </div> {% endcomment %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Team end -->
+
+    <!-- Counter start -->
+   {% include "temp/counter.html" %}
+    <!-- Counter end -->
+
+    <!-- Testimonial start -->
+    <section class="testimonial">
+        <div class="container">
+            <div class="section-title">
+                <div class="row">
+                    <div class="col-md-8 col-md-offset-2 text-center">
+                        <h2>Our <span class="color-defult"> Clients</span> Say</h2>
+                        <div class="line-border-center bg-defult"></div>
+                        <p>Repellendus error placeat numquam doloribus perferendis consequatur maxime molestiae soluta Corporis quidem quaerat accusantium omnis repudiandae nulla recusandae</p>
+                    </div>
+                </div>
+            </div>
+            <div class="section-content">
+                <div class="row">
+                    <div class="col-md-8 col-md-offset-2">
+                        <div class="testimonial-carousel-one">
+                            <div class="item">
+                                <div class="testimonial-item text-center">
+                                    <div class="testimonial-author">
+                                        <div class="author-img">
+                                            <img class="img-responsive" src="{% static 'temp/img/testimonial/1.png' %}" alt="" />
+                                        </div>
+                                        <h4>John Daniel</h4>
+                                        <h6>business man</h6>
+                                        <ul>
+                                            <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                                            <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                                            <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                                            <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                                            <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                                        </ul>
+                                    </div>
+                                    <p>consectetur adipisicing elit. Nemo ex doloremque maiores quas, cumque commodi eaque molestiae in ratione nam obcaecati nihil provident illum eius sed ullam amet, expedita molestias iusto.</p> 
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="testimonial-item text-center">
+                                    <div class="testimonial-author">
+                                        <div class="author-img">
+                                            <img class="img-responsive" src="{% static 'temp/img/testimonial/2.png' %}" alt="" />
+                                        </div>
+                                        <h4>John Daniel</h4>
+                                        <h6>business man</h6>
+                                        <ul>
+                                            <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                                            <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                                            <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                                            <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                                            <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                                        </ul>
+                                    </div>
+                                    <p>consectetur adipisicing elit. Nemo ex doloremque maiores quas, cumque commodi eaque molestiae in ratione nam obcaecati nihil provident illum eius sed ullam amet, expedita molestias iusto.</p> 
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="testimonial-item text-center">
+                                    <div class="testimonial-author">
+                                        <div class="author-img">
+                                            <img class="img-responsive" src="{% static 'temp/img/testimonial/3.png' %}" alt="" />
+                                        </div>
+                                        <h4>John Daniel</h4>
+                                        <h6>business man</h6>
+                                        <ul>
+                                            <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                                            <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                                            <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                                            <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                                            <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                                        </ul>
+                                    </div>
+                                    <p>consectetur adipisicing elit. Nemo ex doloremque maiores quas, cumque commodi eaque molestiae in ratione nam obcaecati nihil provident illum eius sed ullam amet, expedita molestias iusto.</p> 
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Testimonial end -->
+    
+   <!-- blog start -->
+    <section class="blog-area bg-f8">
+        <div class="container">
+            <div class="section-title">
+                <div class="row">
+                    <div class="col-md-8 col-md-offset-2 text-center">
+                        <h2>Latest <span class="color-defult">news</span></h2>
+                        <div class="line-border-center bg-defult"></div>
+                        <p>Repellendus error placeat numquam doloribus perferendis consequatur maxime molestiae soluta Corporis quidem quaerat accusantium omnis repudiandae nulla recusandae</p>
+                    </div>
+                </div>
+            </div>
+            <div class="section-content">
+                <div class="row">
+                    <div class="blog-feature">
+
+                        {% for blog_item in blog.blog_item.all|slice:":3"  %}
+<div class="col-md-4 col-sm-6 col-xs-12">
+    <div class="blog-item style-1">
+        <div class="blog-date text-center">
+            <i class="pe-7s-link"></i>
+        </div>
+        <div class="blog-img"><a href="#"><img src="{{ blog_item.blog_img.url }}" alt=""></a>
+            <div class="blog-event-date">
+                <h3>{{ blog_item.date|date:"d" }} <small>{{ blog_item.date|date:"M" }}</small></h3>
+            </div>
+        </div>
+        <div class="blog-content">
+            <a href="#"><h4>{{ blog_item.blog_title }}</h4></a>
+            <i class="fa fa-user-o"></i> <a href="#">Admin</a> | <i class="fa fa-heart-o"></i> <a href="#">Like :20</a> | <i class="fa fa-comment-o"></i><a href="#"> Comments: 10</a>
+            <p>{{ blog_item.blog_desc|slice:":50" }}{% if blog_item.blog_desc|length > 300 %}...{% endif %}</p>
+            <a href="{% url 'blog_details' slug=blog_item.slug  %}" class="btn btn-simple">Read More</a>
+        </div>
+    </div>
+</div>
+{% endfor %}
+
+
+                        {% comment %} <div class="col-md-4 col-sm-6 col-xs-12">
+                            <div class="blog-item style-1">
+                                <div class="blog-date text-center">
+                                    <i class="pe-7s-link"></i>
+                                </div>
+                                <div class="blog-img"><a href="#"><img src="{% static 'temp/img/blog/1.jpg' %}" alt=""></a>
+                                    <div class="blog-event-date">
+                                        <h3>13 <small>Jun</small></h3>
+                                    </div>
+                                </div>
+                                <div class="blog-content">
+                                    <a href="#"><h4>What's the Right Choice? </h4></a>
+                                    <i class="fa fa-user-o"></i> <a href="#">Admin</a> | <i class="fa fa-heart-o"></i> <a href="#">Like :20 </a> | <i class="fa fa-comment-o"></i><a href="#"> Comments: 10</a>
+                                    <p>come from a family of doctors and I was suffering from morbid obesity with co-morbidities like diabetes, hypertension, and sleep apnoea.</p>
+                                    <a href="#" class="btn btn-simple">Read More</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 col-sm-6 col-xs-12">
+                            <div class="blog-item style-1">
+                                <div class="blog-date text-center">
+                                    <i class="pe-7s-link"></i>
+                                </div>
+                                <div class="blog-img"><a href="#"><img src="{% static 'temp/img/blog/2.jpg' %}" alt=""></a>
+                                    <div class="blog-event-date">
+                                        <h3>17 <small>Jun</small></h3>
+                                    </div>
+                                </div>
+                                <div class="blog-content">
+                                    <a href="#"><h4>Caregiver Series </h4></a>
+                                    <i class="fa fa-user-o"></i> <a href="#">Admin</a> | <i class="fa fa-heart-o"></i> <a href="#">Like :20 </a> | <i class="fa fa-comment-o"></i><a href="#"> Comments: 10</a>
+                                    <p>come from a family of doctors and I was suffering from morbid obesity with co-morbidities like diabetes, hypertension, and sleep apnoea.</p>
+                                    <a href="#" class="btn btn-simple">Read More</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 col-sm-6 col-xs-12 center-block">
+                            <div class="blog-item style-1">
+                                <div class="blog-date text-center">
+                                    <i class="pe-7s-link"></i>
+                                </div>
+                                <div class="blog-img"><a href="#"><img src="{% static 'temp/img/blog/3.jpg' %}" alt=""></a>
+                                    <div class="blog-event-date">
+                                        <h3>19 <small>Jun</small></h3>
+                                    </div>
+                                </div>
+                                <div class="blog-content">
+                                    <a href="#"><h4>Little Hats, Big Hearts </h4></a>
+                                    <i class="fa fa-user-o"></i> <a href="#">Admin</a> | <i class="fa fa-heart-o"></i> <a href="#">Like :20 </a> | <i class="fa fa-comment-o"></i><a href="#"> Comments: 10</a>
+                                    <p>come from a family of doctors and I was suffering from morbid obesity with co-morbidities like diabetes, hypertension, and sleep apnoea.</p>
+                                    <a href="#" class="btn btn-simple">Read More</a>
+                                </div>
+                            </div>
+                        </div> {% endcomment %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+   <!-- blog end -->
+
+    <!-- Footer Style start -->
+    {% include "temp/footer.html" %}
+
+    
+    <!-- Footer Style End -->
+
+  
+    <a href="#" class="scrollup"><i class="pe-7s-up-arrow" aria-hidden="true"></i></a>
+    <!-- jQuery -->
+   
+
+    {% endblock content %}
+
+    {% block js_file %}
+    {% include "temp/js.html" %}
+    {% endblock js_file %}
+    
+    

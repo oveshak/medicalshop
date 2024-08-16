@@ -1,0 +1,43 @@
+{% load static %}
+
+<section class="service-area over-layer-default" style="background-image:url({% static 'temp/img/bg/5.jpg' %});">
+    <div class="container padding-bottom-none padding-top-40">
+        <div class="section-content">
+            <div class="row">
+                <div class="col-sm-12 col-md-4">
+                    <div class="service-item style-1 text-white border-right">
+                        <div class="service-icon">
+                            <i class="fas fa-phone-alt"></i>
+                        </div>
+                        <div class="content">
+                            <h5><a href="#">Give us a Call</a></h5>
+                            <p>{{glo.phone_Number}}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-4">
+                    <div class="service-item style-1 text-white border-right">
+                        <div class="service-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="content">
+                            <h5><a href="#">Send us a Message</a></h5>
+                            <p>{{glo.email.first.email}}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-4">
+                    <div class="service-item style-1 text-white">
+                        <div class="service-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="content">
+                            <h5><a href="#">Visit our Location</a></h5>
+                            <p>{{glo.adress}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

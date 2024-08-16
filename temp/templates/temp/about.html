@@ -1,0 +1,50 @@
+{% load static %}
+<section class="about-3col animatedParent animateOnce">
+  <div class="container">
+    <div class="section-content">
+      <div class="row">
+        <div class="about-feature style-2">
+
+
+          {% for about in about.about_item.all %}
+          <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
+            <div class="appointment-item">
+              <i class="{{about.icon}}"></i>
+              <h5><a href="#">{{about.title}}</a></h5>
+              <div class="line-border-center bg-gray margin-bottom-20"></div>
+              <p>{{about.desc}}</p>
+              <button class="btn btn-theme btn-sm">
+                Find a Doctor <i class="fa-solid fa-angle-right"></i>
+              </button>
+            </div>
+          </div>
+          {% endfor %}
+
+          
+          {% comment %} <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
+            <div class="appointment-item">
+              <i class="fa-solid fa-heart"></i>
+              <h5><a href="#">Department & Service</a></h5>
+              <div class="line-border-center bg-gray margin-bottom-20"></div>
+              <p>Find maps and more for all locations.</p>
+              <button class="btn btn-theme btn-sm">
+                Get Directions <i class="fa-solid fa-angle-right"></i>
+              </button>
+            </div>
+          </div>
+          <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 center-block">
+            <div class="appointment-item">
+              <i class="fas fa-first-aid"></i>
+              <h5><a href="#">Appointments</a></h5>
+              <div class="line-border-center bg-gray margin-bottom-20"></div>
+              <p>Click in, walk in or call us today.</p>
+              <button class="btn btn-theme btn-sm">
+                Get Appointment <i class="fa-solid fa-angle-right"></i>
+              </button>
+            </div>
+          </div> {% endcomment %}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

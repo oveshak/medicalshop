@@ -1,0 +1,235 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+    <title>Medicative Hospital || Health & Medical HTML Template</title>
+{% endblock title %}
+
+    {% block css_file %}
+    {% include "temp/css.html" %}
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    {% endblock css_file %}
+
+    {% block content %}
+
+    {% comment %} <div class="preloader"></div> {% endcomment %}
+
+    <!-- Header navbar start -->
+    {% include "temp/header.html" %}
+    <!-- Header navbar end -->
+
+
+    <section class="inner-bg over-layer-black" style="background-image: url('{% static 'temp/img/bg/4.jpg' %}')">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="mini-title inner-style-2">
+                        <h3>Doctor Dtails</h3>
+                        <p><a href="index-one.html">Home</a> <span class="fa fa-angle-right"></span> <a href="#">Doctor Dtails</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team start -->
+    <section class="team-area">
+        <div class="container">
+            <div class="section-content">
+                <div class="row">
+                    <div class="col-md-5">
+                        
+                        <div class="team-item-2">
+                            <img src="{{doctor.img.url}}" alt="">
+                            <div class="team-contact">
+                                <ul>
+                                    {% for icon in doctor.social_media.all %}
+                                    <li><a href="{{icon.social_url}}"><i class="{{icon.social_icon }}"></i></a></li>
+                                    {% endfor %}
+                                    {% comment %} <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-behance"></i></a></li> {% endcomment %}
+                                </ul>
+                            </div>
+                            <div class="team-content">
+                                <h4><a href="#">{{doctor.dr_name}}</a></h4>
+                                <h6>{{doctor.profession_name}}</h6>
+                                <div class="team-content-icon">
+                                    <i class="flaticon-heart"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="team-details">
+                            <address>
+                                <ul>
+                                    <li><i class="pe-7s-map-marker"></i>{{doctor.job_place}}</li>
+                                    <li><i class="pe-7s-call"></i>Phone: {{doctor.phone_number}}</li>
+                                    <li><i class="pe-7s-print"></i>Fax:{{doctor.fax_number}}</li>
+                                    <li><i class="pe-7s-clock"></i>Friday - Sunday Closed.</li>
+                                    <li><i class="pe-7s-mail"></i><a href="mailto:">Email: {{doctor.email}}</a></li>
+                                    <li><i class="pe-7s-global"></i><a href="#">{{doctor.web_app_link}}</a></li>
+                                </ul>
+                            </address>
+                        </div>
+
+                        <div class="bg-f8 padding-20 margin-top-50">
+                          <div class="footer-item footer-widget-one margin-bottom-10">
+                            <div class="footer-title">
+                              <h4>Opening Hour</h4>
+                              <div class="border-style-2"></div>
+                            </div>
+                            <ul class="footer-list border-deshed">
+
+
+                                {% for OpeningHour in doctor.opening_hours.all %}
+    <li class="clearfix">
+        <span>{{ OpeningHour.day_name }}:</span>
+        <div class="value pull-right">
+            {% if OpeningHour.day_opening and OpeningHour.day_closing %}
+                {{ OpeningHour.day_opening }} - {{ OpeningHour.day_closing }}
+            {% else %}
+                Not Available
+            {% endif %}
+        </div>
+    </li>
+{% endfor %}
+
+
+                              {% comment %} <li class="clearfix"> <span> Mon - Tue :  </span>
+                                <div class="value pull-right"> 10.00 am - 6.00 pm </div>
+                              </li>
+                              <li class="clearfix"> <span> Wed - Thu :</span>
+                                <div class="value pull-right"> 10.00 am - 4.00 pm </div>
+                              </li>
+                              <li class="clearfix"> <span> Friday : </span>
+                                <div class="value pull-right"> 01.00 pm - 5.00 pm </div>
+                              </li>
+                              <li class="clearfix"> <span>  Saturday : </span>
+                                <div class="value pull-right">  10.00 am - 4.00 pm </div>
+                              </li>
+                              <li class="clearfix"> <span> Sunday : </span>
+                                <div class="value pull-right"> Colosed </div>
+                              </li> {% endcomment %}
+                            </ul>
+                          </div>
+                        </div>
+
+
+                    </div>
+                    <div class="col-md-7 team-area">
+                        <div class="team-details-content">
+                            <h2><a href="#">{{doctor.dr_name}} </a></h2>
+                            <h6>{{doctor.profession_name}}</h6>
+                            <h4>Medical doctor</h4>
+                            <p>{{doctor.desc | safe}}</p>
+
+                            <h4>History of medical specialization</h4>
+
+
+                            
+
+                            <ul class="list-style margin-left-10">
+                                {% for specialization in doctor.medical_specializations.specializations.all %}
+                                    <li><i class="fa fa-angle-right margin-right-10"></i> {{ specialization.specialization }}</li>
+                                {% endfor %}
+                            </ul>
+
+
+                            <div class="clearfix margin-top-30">
+                                {% for rating in doctor.professional_rating.all %}
+                                    <div class="skills" data-percent="{{ rating.rate_of_percentage }}%">
+                                        <div class="title-bar">
+                                            <h5>{{ rating.name_of_percentage }}</h5>
+                                        </div>
+                                        <span>{{ rating.rate_of_percentage }}%</span>
+                                        <div class="skillbar-{{ forloop.counter }}"></div>
+                                    </div>
+                                {% endfor %}
+                            </div>
+
+
+                            <div class="margin-bottom-30">
+                                <h4>EDUCATION & MEDICAL TRAINING</h4>
+                                <div class="border-style-2 margin-bottom-30"></div>
+
+
+
+                                <ul class="list-style margin-left-10">
+                                    {% for specialization in doctor.education_trainings.trainings.all %}
+                                        <li><i class="fa fa-angle-right margin-right-10"></i> <strong>{{ specialization.training}}</strong></li>
+                                    {% endfor %}
+                                </ul>
+                                
+
+
+
+
+                            </div>
+
+
+                            <div class="margin-bottom-30">
+                                <h4>Training</h4>
+                                <div class="border-style-2 margin-bottom-30"></div>
+
+
+                                <ul class="list-style margin-left-10">
+                                    {% for specialization in doctor.trainings.trainings.all %}
+                                        <li><i class="fa fa-angle-right margin-right-10"></i> {{ specialization.training }}</li>
+                                    {% endfor %}
+                                </ul>
+
+
+                            </div>
+
+
+                            <div class="margin-bottom-30">
+                                <h4>CERTIFICATIONS</h4>
+                                <div class="border-style-2 margin-bottom-30"></div>
+
+
+                                <ul class="list-style margin-left-10">
+                                    {% for specialization in doctor.certifications.certifications.all %}
+                                        <li><i class="fa fa-angle-right margin-right-10"></i> {{ specialization.certification }}</li>
+                                    {% endfor %}
+                                </ul>
+                                
+
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Team end -->
+
+   <!-- divider start -->
+    {% include "temp/company.html" %}
+    <!-- divider end -->
+
+    <!-- Footer Style start -->
+  {% include "temp/footer.html" %}
+
+   
+    <!-- Footer Style End -->
+
+
+  
+    <a href="#" class="scrollup"><i class="pe-7s-up-arrow" aria-hidden="true"></i></a>
+    <!-- jQuery -->
+  
+    {% endblock content %}
+
+    {% block js_file %}
+    {% include "temp/js.html" %}
+    {% endblock js_file %}
+    
+    

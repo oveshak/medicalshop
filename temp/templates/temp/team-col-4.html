@@ -1,0 +1,100 @@
+{% extends 'base.html' %} {% load static %} {% block title %}
+<title>Medicative Hospital || Health & Medical HTML Template</title>
+{% endblock title %} {% block css_file %} {% include "temp/css.html" %}
+<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+  <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+{% endblock css_file %} {% block content %}
+
+{% comment %} <div class="preloader"></div> {% endcomment %}
+
+<!-- Header navbar start -->
+{% include "temp/header.html" %}
+<!-- Header navbar end -->
+
+<section
+  class="inner-bg over-layer-black"
+  style="background-image: url('{% static 'temp/img/bg/4.jpg' %}')"
+>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4">
+        <div class="mini-title inner-style-2">
+          <h3>EXPERIENCE Doctor</h3>
+          <p>
+            <a href="{% url 'index'  %}">Home</a>
+            <span class="fa fa-angle-right"></span> <a href="{% url 'doctor_team'  %}">Our Doctor</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Team start -->
+<section class="team-area">
+  <div class="container">
+    <div class="section-content">
+      <div class="row">
+        {% for doctor in doctor|slice:'8' %}
+        <div class="col-md-3">
+          <div class="team-item-2">
+            <img src="{{ doctor.img.url }}" alt="{{ doctor.dr_name }}" />
+            <!-- Render social media links -->
+            <div class="team-contact">
+              <ul>
+                {% for social in doctor.social_media.all %}
+                <li>
+                  <a href="{{ social.social_url }}">
+                    <i class="{{ social.social_icon }}"></i>
+                  </a>
+                </li>
+                {% endfor %}
+              </ul>
+            </div>
+            <div class="team-content">
+              <h4><a href="{% url 'doctor_details' slug=doctor.slug %}">{{ doctor.dr_name }}</a></h4>
+              <h6>{{ doctor.profession_name }}</h6>
+            </div>
+            <div class="timetable">
+              <!-- Render opening hours -->
+              {% for opening_hour in doctor.opening_hours.all|slice:":3" %}
+              <div class="item">
+                <div class="label">{{ opening_hour.day_name }}</div>
+                <div class="value">
+                  {{ opening_hour.day_opening }} - {{ opening_hour.day_closing }}
+                </div>
+              </div>
+              {% endfor %}
+              <a href="{% url 'doctor_details' slug=doctor.slug %}" class="btn-theme text-center btn-block">
+                View Profile
+              </a>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- Team end -->
+
+<!-- divider start -->
+{% include "temp/company.html" %}
+<!-- divider end -->
+
+<!-- Footer Style start -->
+{% include "temp/footer.html" %}
+
+<!-- Footer Style End -->
+
+<a href="#" class="scrollup"
+  ><i class="pe-7s-up-arrow" aria-hidden="true"></i
+></a>
+{% endblock content %} {% block js_file %} {% include "temp/js.html" %} 
+{% endblock js_file %}

@@ -1,0 +1,204 @@
+{% load static %}
+
+<div class="header-topbar style-2">
+  <div class="container padding-none">
+      <div class="row">
+          <div class="col-md-8 col-sm-6 welcome-top">
+              <ul class="list-inline top-icon">
+                  <li><i class="fa fa-envelope"></i> {{ glo.email.first.email }}</li>
+                  <li><i class="fa fa-clock-o"></i> Mon - Sat 8.00 A.M - 8.00 P.M</li>
+              </ul>
+          </div>
+          <div class="col-md-4 col-sm-6">
+              <ul class="list-inline text-right icon-style-1">
+                  {% for media in glo.company_socaial_medias.all %}
+                  <li class="hvr-rectangle-out">
+                      <a href="{{ media.social_url }}" target="_blank">
+                          <i class="{{ media.social_icon }}" aria-hidden="true"></i>
+                      </a>
+                  </li>
+                  {% comment %} {% empty %}
+                  <li>No social media links available</li> {% endcomment %}
+                  {% endfor %}
+              </ul>
+          </div>
+      </div>
+  </div>
+</div>
+
+<div class="main-navbar conner-style style-2 position-fixed">
+  <div class="container padding-none">
+    <div class="row">
+      <div class="col-md-12">
+        <nav class="navbar navbar-default">
+          <div class="navbar-header">
+            <button
+              type="button"
+              class="navbar-toggle collapsed"
+              data-toggle="collapse"
+              data-target="#navbar-collapse"
+              aria-expanded="false"
+            >
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            
+            <a class="navbar-brand d-block" href="{% url 'index' %}">
+              <img src="{{glo.logo_img.url}}" alt="Logo" />
+            </a>
+          </div>
+          <div class="collapse navbar-collapse" id="navbar-collapse">
+            <ul class="nav navbar-nav bg-none navbar-right style-3">
+              <li class="dropdown active">
+                <a href="{% url 'index' %}" class="dropdown-toggle">
+                  <span data-hover="Home">Home</span>
+                </a>
+              </li>
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                  <span data-hover="Department">Department <i class="fa fa-angle-down" aria-hidden="true"></i></span>
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a href="{% url 'cardiologists_dept' %}">Cardiologists Department</a></li>
+                  <li><a href="{% url 'orthopaedics_dept' %}">Orthopaedics Department</a></li>
+                  <li><a href="{% url 'gastroenterology_dept' %}">Gastroenterology Department</a></li>
+                  <li><a href="{% url 'neuroscience_dept' %}">Neuroscience Department</a></li>
+                  <li><a href="{% url 'spine_dept' %}">Spine Department</a></li>
+                  <li><a href="{% url 'cancer_dept' %}">Cancer Department</a></li>
+                  <li><a href="{% url 'colorectal_dept' %}">Colorectal Department</a></li>
+                  <li><a href="{% url 'bariatric_dept' %}">Bariatric Department</a></li>
+                </ul>
+              </li>
+             
+
+              <li class="dropdown">
+                <a href="{% url 'doctor_team' %}" class="dropdown-toggle">
+                  <span data-hover="Doctors">Doctors</span>
+                </a>
+              </li>
+
+              <li class="dropdown">
+                <a href="{% url 'protfolio' %}" class="dropdown-toggle">
+                  <span data-hover="Portfolio">Portfolio</span>
+                </a>
+              </li>
+              {% comment %} <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                  <span data-hover="Pages">Pages <i class="fa fa-angle-down" aria-hidden="true"></i></span>
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a href="shop-grid.html">Shop Grid</a></li>
+                  <li><a href="shop-list.html">Shop List</a></li>
+                  <li><a href="{% url 'shop_details' %}">Shop Single</a></li>
+                  <li><a href="shop-cart.html">Shop Cart</a></li>
+                  <li><a href="shop-checkout.html">Shop Checkout</a></li>
+                  <li><a href="testimonials.html">Testimonials</a></li>
+                  <li><a href="coming-soon.html">Coming Soon</a></li>
+                  <li><a href="error.html">Error / 404 Page</a></li>
+                </ul>
+              </li> {% endcomment %}
+              <li class="dropdown">
+                <a href="{% url 'blog' %}" class="dropdown-toggle">
+                  <span data-hover="Blog">Blog</span>
+                </a>
+              </li>
+              <li class="dropdown">
+                <a href="{% url 'contact' %}" class="dropdown-toggle">
+                  <span data-hover="Contact">Contact</span>
+                </a>
+              </li>
+              <li>
+                <div class="dropdown-buttons">
+                  <div class="btn-group menu-search-box">
+                    <button
+                      type="button"
+                      class="btn dropdown-toggle"
+                      id="header-drop-3"
+                      data-toggle="dropdown"
+                    >
+                      <i class="icon icon-Search" aria-label="Search"></i>
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-right dropdown-animation" aria-labelledby="header-drop-3">
+                      <li>
+                        <form role="search" class="search-box">
+                          <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Search" />
+                            <i class="icon icon-Search form-control-feedback" aria-label="Search Icon"></i>
+                          </div>
+                        </form>
+                      </li>
+                    </ul>
+                  </div>
+                  {% comment %} <div class="btn-group">
+                    <button
+                      type="button"
+                      class="btn dropdown-toggle"
+                      id="header-drop-4"
+                      data-toggle="dropdown"
+                    >
+                      <i class="icon icon-ShoppingCart" aria-label="Cart"></i>
+                      <span class="menu-cart">8</span>
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-right cart dropdown-animation" aria-labelledby="header-drop-4">
+                      <li>
+                        <table class="table table-hover">
+                          <thead>
+                            <tr>
+                              <th class="quantity">QTY</th>
+                              <th class="product">Product</th>
+                              <th class="amount">Subtotal</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td class="quantity">2 x</td>
+                              <td class="product">
+                                <a href="shop-product.html">Android 4.4 Smartphone</a>
+                                <span class="small">4.7" Dual Core 1GB</span>
+                              </td>
+                              <td class="amount">$199.00</td>
+                            </tr>
+                            <tr>
+                              <td class="quantity">3 x</td>
+                              <td class="product">
+                                <a href="shop-product.html">Android 4.2 Tablet</a>
+                                <span class="small">7.3" Quad Core 2GB</span>
+                              </td>
+                              <td class="amount">$299.00</td>
+                            </tr>
+                            <tr>
+                              <td class="quantity">3 x</td>
+                              <td class="product">
+                                <a href="shop-product.html">Desktop PC</a>
+                                <span class="small">Quad Core 3.2MHz, 8GB RAM, 1TB Hard Disk</span>
+                              </td>
+                              <td class="amount">$1499.00</td>
+                            </tr>
+                            <tr>
+                              <td class="total-quantity" colspan="2">
+                                <strong>Total 8 Items</strong>
+                              </td>
+                              <td class="total-amount">
+                                <strong>$1997.00</strong>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                        <div class="panel-body text-right">
+                          <a href="#" class="menu-shop-btn">View Cart</a>
+                          <a href="#" class="menu-shop-btn">Checkout</a>
+                        </div>
+                      </li>
+                    </ul>
+                  </div> {% endcomment %}
+                </div>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+    </div>
+  </div>
+</div>

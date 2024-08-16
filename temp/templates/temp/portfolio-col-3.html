@@ -1,0 +1,96 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+    <title>Medicative Hospital || Health & Medical HTML Template</title>
+    {% endblock title %}
+
+    {% block css_file %}
+    {% include "temp/css.html" %}
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    {% endblock css_file %}
+
+    {% block content %}
+
+    <div class="preloader"></div>
+
+    <!-- Header navbar start -->
+    {% include "temp/header.html" %}
+    <!-- Header navbar end -->
+
+   
+
+
+    <section class="inner-bg over-layer-black" style="background-image: url('{% static 'temp/img/bg/4.jpg' %}')">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="mini-title inner-style-2">
+                        <h3>Portfolio</h3>
+                        <p><a href="{% url 'index' %}">Home</a> <span class="fa fa-angle-right"></span> <a href="{% url 'protfolio' %}">Portfolio</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+     <!-- portfolio start -->
+     <section class="gallery-area">
+        <div class="container">
+            <div class="section-content">
+                <div class="row clearfix">
+                    <div class="gallery-filter-item text-center">
+                        <ul class="gallery-filter">
+                            <li class="active"><a href="#" data-filter="*" class="current">All</a></li>
+    
+                            {% for cat in category.all %}
+                            <li><a href="#" data-filter=".{{ cat.slug }}" class="current">{{ cat.name }}</a></li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+    
+                    <div class="gallery col-3 gutter">
+                        {% for prot in protfolio.all %}
+                        <div class="gallery-item {{ prot.category.slug }}">
+                            <div class="thumb">
+                                <img src="{{ prot.image.url }}" alt="">
+                                <div class="gallery-hover">
+                                    <div class="gallery-info">
+                                        <div class="gallery-btn">
+                                            <a href="{{ prot.image.url }}" data-fancybox-group="gallery" class="lightbox-image" title="lightbox view"> <i class="fa-solid fa-swap"></i> </a>
+                                        </div>
+                                        <h4><a href="{{ prot.image.url }}" data-fancybox-group="gallery" class="lightbox-image" title="lightbox view">{{ prot.title }}</a></h4>
+                                        <p><a href="#">{{ prot.subtitle }}</a></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- portfolio end -->
+
+   <!-- divider start -->
+    {% include "temp/company.html" %}
+    <!-- divider end -->
+
+    <!-- Footer Style start -->
+    {% include "temp/footer.html" %}
+
+    
+    {% endblock content %}
+
+    {% block js_file %}
+    {% include "temp/js.html" %}
+    {% endblock js_file %}
+    
+    

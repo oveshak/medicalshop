@@ -1,0 +1,421 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+    <title>Medicative Hospital || Health & Medical HTML Template</title>
+    {% endblock title %}
+
+    {% block css_file %}
+    {% include "temp/css.html" %}
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    {% endblock css_file %}
+
+    {% block content %}
+
+    <div class="preloader"></div>
+
+    <!-- Header navbar start -->
+  {% include "temp/header.html" %}
+    <!-- Header navbar end -->
+
+
+
+    <section class="inner-bg over-layer-black" style="background-image: url('{% static 'temp/img/bg/4.jpg' %}')">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="mini-title inner-style-2">
+                        <h3>{{dept.dept_name}} Depertment</h3>
+                        <p><a href="{% url 'index' %}">Home</a> <span class="fa fa-angle-right"></span> <a href="#">Depertment Dtails</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- depertment start -->
+    <section class="depertment-area">
+        <div class="container">
+            <div class="section-content">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="depertment-col">
+                            {% include "temp/deperment.html" %}
+                        </div>
+                        <div class="bg-f8 padding-20 margin-top-50">
+                          <div class="footer-item footer-widget-one margin-bottom-10">
+                            <div class="footer-title">
+                              <h4>Opening Hour</h4>
+                              <div class="border-style-2"></div>
+                            </div>
+                            <ul class="footer-list border-deshed">
+                              <li class="clearfix"> <span> Mon - Tue :  </span>
+                                <div class="value pull-right"> 10.00 am - 6.00 pm </div>
+                              </li>
+                              <li class="clearfix"> <span> Wed - Thu :</span>
+                                <div class="value pull-right"> 10.00 am - 4.00 pm </div>
+                              </li>
+                              <li class="clearfix"> <span> Friday : </span>
+                                <div class="value pull-right"> 01.00 pm - 5.00 pm </div>
+                              </li>
+                              <li class="clearfix"> <span>  Saturday : </span>
+                                <div class="value pull-right">  10.00 am - 4.00 pm </div>
+                              </li>
+                              <li class="clearfix"> <span> Sunday : </span>
+                                <div class="value pull-right"> Colosed </div>
+                              </li>
+                            </ul>
+                          </div>
+                        </div>
+                    </div>
+                    <div class="col-md-8">
+                        <img src="{{dept.dept_img.url}}" alt="">
+                        <h3 class="margin-top-30 margin-bottom-20"> <span class="color-defult">{{dept.dept_name}}</span> Depertment</h3>
+                        <p>{{dept.dept_desc | safe}}</p>
+                        <div class="row margin-top-20 margin-left-10">
+                            <div class="col-md-6">
+                                <div class="cardilogists-list">
+                                    <h4>Treatments Fee</h4>
+                                    <div class="border-style-2"></div>
+                                    <ul>
+
+                                        {% for i in dept.treatments_fee.all %}
+                                        <li><i class="fa fa-check"></i>
+                                            {{i.treatments_name}} – ${{i.treatments_fee}}</li>
+                                        {% endfor %}
+
+                                        
+                                        {% comment %} <li><i class="pe-7s-check"></i> Orthopaedics test – $30</li>
+                                        <li><i class="pe-7s-check"></i> Neurosciences test – $45</li>
+                                        <li><i class="pe-7s-check"></i> Cancer blood – $81</li>
+                                        <li><i class="pe-7s-check"></i> Gastroenterology test – $123</li>
+                                        <li><i class="pe-7s-check"></i> Cardilogists test – $85</li>
+                                        <li><i class="pe-7s-check"></i> Colorectal test – $75</li>
+                                        <li><i class="pe-7s-check"></i> Spine ( Back Bron ) test – $19</li> {% endcomment %}
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="cardilogists-list">
+                                    <h4>Investigations Fee</h4>
+                                    <div class="border-style-2"></div>
+                                    <ul>
+                                        {% for i in dept.investigations_fee.all %}
+                                        <li><i class="fa fa-check"></i>
+                                            {{i.investigations_name}} – ${{i.investigations_fee}}</li>
+                                        {% endfor %}
+                                        {% comment %} <li><i class="pe-7s-check"></i> Cardilogists test – $105</li> {% endcomment %}
+                                        {% comment %} <li><i class="pe-7s-check"></i> Orthopaedics test – $30</li>
+                                        <li><i class="pe-7s-check"></i> Neurosciences test – $45</li>
+                                        <li><i class="pe-7s-check"></i> Cancer blood – $81</li>
+                                        <li><i class="pe-7s-check"></i> Gastroenterology test – $123</li>
+                                        <li><i class="pe-7s-check"></i> Cardilogists test – $85</li>
+                                        <li><i class="pe-7s-check"></i> Colorectal test – $75</li>
+                                        <li><i class="pe-7s-check"></i> Spine ( Back Bron ) test – $19</li> {% endcomment %}
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- depertment end -->
+
+    <!-- Counter start -->
+    {% include "temp/counter.html" %}
+    <!-- Counter end -->
+
+    <!-- Team start -->
+    <section class="team-area">
+        <div class="container">
+            <div class="section-title">
+                <div class="row">
+                    <div class="col-md-8 col-md-offset-2 text-center">
+                        <h2><span class="color-defult">Experience</span> Doctor</h2>
+                        <div class="line-border-center bg-defult"></div>
+                        <p>Repellendus error placeat numquam doloribus perferendis consequatur maxime molestiae soluta Corporis quidem quaerat accusantium omnis repudiandae nulla recusandae</p>
+                    </div>
+                </div>
+            </div>
+            <div class="section-content">
+                <div class="row">
+                    <div class="team-carousel">
+
+                        <!-- temp/depertment-1.html -->
+{% for doctor in dept_doctor %}
+<div class="item">
+    <div class="team-item-2">
+        <img src="{{ doctor.img.url }}" alt="{{ doctor.dr_name }}"> <!-- Adjust field name as per your model -->
+        <div class="team-contact">
+            <ul>
+                {% for social in doctor.social_media.all %}
+                <li><a href="{{ social.url }}"><i class="{{ social.social_icon }}"></i></a></li>
+                {% endfor %}
+            </ul>
+        </div>
+        <div class="team-content">
+            <h4><a href="{% url 'doctor_details' slug=doctor.slug %}">{{ doctor.dr_name }}</a></h4>  <!-- Adjust field name as per your model -->
+            <h6>{{ doctor.profession_name }}</h6>  <!-- Adjust field name as per your model -->
+            <div class="team-content-icon">
+               
+                <a href="{% url 'doctor_details' slug=doctor.slug %}"><i class="fa-solid fa-arrow-right white"></i></a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endfor %}
+
+
+                        
+                        {% comment %} <div class="item">
+                            <div class="team-item-2">
+                                <img src="{% static 'temp/img/team/1.png' %}" alt="">
+                                <div class="team-contact">
+                                    <ul>
+                                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-behance"></i></a></li>
+                                    </ul>
+                                </div>
+                                <div class="team-content">
+                                    <h4><a href="#">Dr. George Beller</a></h4>
+                                    <h6>Cardiologists</h6>
+                                    <div class="team-content-icon">
+                                        <i class="flaticon-heart"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="team-item-2">
+                                <img src="{% static 'temp/img/team/2.png' %}" alt="">
+                                <div class="team-contact">
+                                    <ul>
+                                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-behance"></i></a></li>
+                                    </ul>
+                                </div>
+                                <div class="team-content">
+                                    <h4><a href="#">Dr. John DiMarco</a></h4>
+                                    <h6>Endocrinologists</h6>
+                                    <div class="team-content-icon">
+                                        <i class="flaticon-stomach"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="team-item-2">
+                                <img src="{% static 'temp/img/team/3.png' %}" alt="">
+                                <div class="team-contact">
+                                    <ul>
+                                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-behance"></i></a></li>
+                                    </ul>
+                                </div>
+                                <div class="team-content">
+                                    <h4><a href="#">Dr. W. Kline Bolton</a></h4>
+                                    <h6>Neurologists</h6>
+                                    <div class="team-content-icon">
+                                        <i class="flaticon-brain"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="team-item-2">
+                                <img src="{% static 'temp/img/team/4.png' %}" alt="">
+                                <div class="team-contact">
+                                    <ul>
+                                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-behance"></i></a></li>
+                                    </ul>
+                                </div>
+                                <div class="team-content">
+                                    <h4><a href="#">Dr. George Beller</a></h4>
+                                    <h6>Cardiologists</h6>
+                                    <div class="team-content-icon">
+                                        <i class="flaticon-virus"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="item">
+                            <div class="team-item-2">
+                                <img src="{% static 'temp/img/team/5.png' %}" alt="">
+                                <div class="team-contact">
+                                    <ul>
+                                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-behance"></i></a></li>
+                                    </ul>
+                                </div>
+                                <div class="team-content">
+                                    <h4><a href="#">Dr. W. Kline Bolton</a></h4>
+                                    <h6>skin specialist</h6>
+                                    <div class="team-content-icon">
+                                        <i class="flaticon-skin-cells"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> {% endcomment %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Team end -->
+
+   <!-- divider start -->
+    <section class="service-area over-layer-default" style="background-image:url({% static 'temp/img/bg/5.jpg' %});">
+        <div class="container padding-bottom-none padding-top-40">
+            <div class="section-content">
+                <div class="row">
+                    <div class="col-sm-12 col-md-4">
+                        <div class="service-item style-1 text-white border-right">
+                            <div class="service-icon">
+                                <i class="pe-7s-call"></i>
+                            </div>
+                            <div class="content">
+                                <h5><a href="#">Give us a Call</a></h5>
+                                <p>+970-438-3258</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-md-4">
+                        <div class="service-item style-1 text-white border-right">
+                            <div class="">
+                                <i class="pe-7s-mail-open"></i>
+                            </div>
+                            <div class="content">
+                                <h5><a href="#">Send us a Message</a></h5>
+                                <p>Your_malil@gmail.com</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-md-4">
+                        <div class="service-item style-1 text-white">
+                            <div class="">
+                                <i class="pe-7s-map-marker"></i>
+                            </div>
+                            <div class="content">
+                                <h5><a href="#">Visit our Location</a></h5>
+                                <p>12 New york, USA </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- divider end -->
+
+    <!-- Footer Style start -->
+    <footer class="bg-faded">
+        <div class="container">
+            <div class="section-content">
+                <div class="row margin-top-30">
+                    <div class="col-md-3">
+                      <div class="footer-item footer-widget-one">
+                          <img alt="" src="{% static 'temp/img/logo.png' %}" class="footer-logo">
+                          <p>Voluptate porro esse repellat quo exercitationem debitis incidunt.</p>
+
+                          <ul class="address">
+                            <li><i class="pe-7s-call"></i>Phone: 001 (407) 901-6400</li>
+                            <li><i class="pe-7s-mail"></i><a href="mailto:">Email: info@bdcoder.com</a></li>
+                          </ul>
+                          
+                          <hr>
+                          <ul class="social-icon bg-theme">
+                            <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                            <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                            <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                            <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+                            <li><a href="#"><i class="fa fa-dribbble" aria-hidden="true"></i></a></li>
+                          </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                      <div class="footer-item">
+                        <div class="footer-title">
+                          <h4>Our Peges </h4>
+                          <div class="border-style-2"></div>
+                        </div>
+                        <ul class="footer-list border-deshed color-icon">
+                          <li><i class="pe-7s-angle-right"></i><a href="#">About Us</a></li>
+                          <li><i class="pe-7s-angle-right"></i><a href="#">Services</a></li>
+                          <li><i class="pe-7s-angle-right"></i><a href="#">Gallery</a></li>
+                          <li><i class="pe-7s-angle-right"></i><a href="#">Blog</a></li>
+                          <li><i class="pe-7s-angle-right"></i><a href="#">Contact</a></li>
+                        </ul>
+                      </div>
+                    </div>
+                    <div class="col-md-3">
+                      <div class="footer-item">
+                        <div class="footer-title">
+                          <h4>Our Services </h4>
+                          <div class="border-style-2"></div>
+                        </div>
+                        <ul class="footer-list border-deshed color-icon">
+                          <li><i class="pe-7s-angle-right"></i><a href="#">Transplants</a></li>
+                          <li><i class="pe-7s-angle-right"></i><a href="#">Gastroenterology</a></li>
+                          <li><i class="pe-7s-angle-right"></i><a href="#">Orthopaedics</a></li>
+                          <li><i class="pe-7s-angle-right"></i><a href="#">Spine Care</a></li>
+                          <li><i class="pe-7s-angle-right"></i><a href="#">Cancer Care</a></li>
+                        </ul>
+                      </div>
+                    </div>
+                    <div class="col-md-3">
+                      <div class="footer-item">
+                        <div class="footer-item clearfix">
+                          <div class="footer-title">
+                            <h4>Fliker Feed</h4>
+                            <div class="border-style-1"></div>
+                          </div>
+                          <div class="flicker-feed gutter">
+                            <a href="{% static 'temp/img/flicker/1.jpg' %}" class="lightbox-image" title="Image Caption Here"><img src="{% static 'temp/img/flicker/1.jpg' %}" alt=""></a>
+                            <a href="{% static 'temp/img/flicker/2.jpg' %}" class="lightbox-image" title="Image Caption Here"><img src="{% static 'temp/img/flicker/2.jpg' %}" alt=""></a>
+                            <a href="{% static 'temp/img/flicker/3.jpg' %}" class="lightbox-image" title="Image Caption Here"><img src="{% static 'temp/img/flicker/3.jpg' %}" alt=""></a>
+                            <a href="{% static 'temp/img/flicker/4.jpg' %}" class="lightbox-image" title="Image Caption Here"><img src="{% static 'temp/img/flicker/4.jpg' %}" alt=""></a>
+                            <a href="{% static 'temp/img/flicker/5.jpg' %}" class="lightbox-image" title="Image Caption Here"><img src="{% static 'temp/img/flicker/5.jpg' %}" alt=""></a>
+                            <a href="{% static 'temp/img/flicker/6.jpg' %}" class="lightbox-image" title="Image Caption Here"><img src="{% static 'temp/img/flicker/6.jpg' %}" alt=""></a>
+                            <a href="{% static 'temp/img/flicker/7.jpg' %}" class="lightbox-image" title="Image Caption Here"><img src="{% static 'temp/img/flicker/7.jpg' %}" alt=""></a>
+                            <a href="{% static 'temp/img/flicker/8.jpg' %}" class="lightbox-image" title="Image Caption Here"><img src="{% static 'temp/img/flicker/8.jpg' %}" alt=""></a>
+                            <a href="{% static 'temp/img/flicker/9.jpg' %}" class="lightbox-image" title="Image Caption Here"><img src="{% static 'temp/img/flicker/9.jpg' %}" alt=""></a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    
+    <!-- Footer Style End -->
+
+  
+    <a href="#" class="scrollup"><i class="pe-7s-up-arrow" aria-hidden="true"></i></a>
+    <!-- jQuery -->
+    {% endblock content %}
+
+    {% block js_file %}
+    {% include "temp/js.html" %}
+    {% endblock js_file %}
+    
